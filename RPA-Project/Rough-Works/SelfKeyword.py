@@ -25,3 +25,17 @@
 # string = "Edureka Training"
 # for i in string.split():
 #     print (i, end=", ")
+
+def myfunc(word):
+    result = ""
+    index = 0
+    for letter in word:
+        if index % 2 == 0:
+            result += letter.upper()
+        else:
+            result += letter.lower()
+        index += 1
+    return result
+res=myfunc("Abhi")
+print(res)
+

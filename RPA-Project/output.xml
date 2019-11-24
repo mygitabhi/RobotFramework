@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191121 00:30:12.162" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191124 21:02:01.596" rpa="false">
 <suite id="s1" name="TestCases" source="C:\Users\anand\PycharmProjects\RPA-Project\TestCases">
-<suite id="s1-s1" name="02-HomePage" source="C:\Users\anand\PycharmProjects\RPA-Project\TestCases\02-HomePage.robot">
-<test id="s1-s1-t1" name="TC002-FirstTC-Search Dresses For Women">
+<suite id="s1-s1" name="01-LoginPage" source="C:\Users\anand\PycharmProjects\RPA-Project\TestCases\01-LoginPage.robot">
 <kw name="Launch Application" library="Login_Keywords" type="setup">
 <doc>Keywords for launching app</doc>
 <kw name="Open Browser" library="SeleniumLibrary">
@@ -11,108 +10,455 @@
 <arg>${URL}</arg>
 <arg>${Browser}</arg>
 </arguments>
-<msg timestamp="20191121 00:30:12.956" level="INFO">Opening browser 'Chrome' to base url 'http://automationpractice.com/index.php'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20191121 00:35:30.793" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20191121 00:35:29.194" endtime="20191121 00:35:30.793"></status>
+<msg timestamp="20191124 21:02:06.208" level="INFO">Opening browser 'Chrome' to base url 'http://automationpractice.com/index.php'.</msg>
+<status status="PASS" starttime="20191124 21:02:06.208" endtime="20191124 21:02:24.579"></status>
 </kw>
-<msg timestamp="20191121 00:35:31.133" level="FAIL">TimeoutException: Message: timeout
-  (Session info: chrome=78.0.3904.97)
-Stacktrace:
-Backtrace:
-	Ordinal0 [0x002DEBD3+1502163]
-	Ordinal0 [0x0025F781+980865]
-	Ordinal0 [0x001E74E8+488680]
-	Ordinal0 [0x001E6175+483701]
-	Ordinal0 [0x001E5E14+482836]
-	Ordinal0 [0x001EAE8D+503437]
-	Ordinal0 [0x001EC7BB+509883]
-	Ordinal0 [0x001DF5C8+456136]
-	Ordinal0 [0x001EAD8C+503180]
-	Ordinal0 [0x0019FA5C+195164]
-	Ordinal0 [0x001978EB+162027]
-	Ordinal0 [0x00180AC7+68295]
-	Ordinal0 [0x00181B40+72512]
-	Ordinal0 [0x00181AD9+72409]
-	Ordinal0 [0x00278FE7+1085415]
-	GetHandleVerifier [0x0037D8AD+503293]
-	GetHandleVerifier [0x0037D640+502672]
-	GetHandleVerifier [0x0038471C+531564]
-	GetHandleVerifier [0x0037E0BA+505354]
-	Ordinal0 [0x002706B6+1050294]
-	Ordinal0 [0x0027052F+1049903]
-	Ordinal0 [0x0027B04B+1093707]
-	Ordinal0 [0x0027B1B3+1094067]
-	Ordinal0 [0x0027A145+1089861]
-	BaseThreadInitThunk [0x776B6359+25]
-	RtlGetAppContainerNamedObjectPath [0x77BF7B74+228]
-	RtlGetAppContainerNamedObjectPath [0x77BF7B44+180]
-</msg>
-<status status="FAIL" starttime="20191121 00:30:12.956" endtime="20191121 00:35:31.133"></status>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20191124 21:02:24.579" endtime="20191124 21:02:28.879"></status>
 </kw>
-<status status="FAIL" starttime="20191121 00:30:12.956" endtime="20191121 00:35:31.133"></status>
+<status status="PASS" starttime="20191124 21:02:06.208" endtime="20191124 21:02:28.879"></status>
+</kw>
+<test id="s1-s1-t1" name="TC001-FirstTC-Login Into Application">
+<kw name="Login Screen,Enter UN and Pwd" library="Login_Keywords">
+<doc>Keywords to pick un and pwd</doc>
+<arguments>
+<arg>${sheetname}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_login}</arg>
+</arguments>
+<msg timestamp="20191124 21:02:28.883" level="INFO">Clicking link 'xpath://a[@class='login']'.</msg>
+<status status="PASS" starttime="20191124 21:02:28.883" endtime="20191124 21:02:31.767"></status>
+</kw>
+<kw name="Fetch Username" library="login">
+<arguments>
+<arg>${sheetname}</arg>
+</arguments>
+<assign>
+<var>${un}</var>
+</assign>
+<msg timestamp="20191124 21:02:32.085" level="INFO">${un} = testermail44@gmail.com</msg>
+<status status="PASS" starttime="20191124 21:02:31.767" endtime="20191124 21:02:32.085"></status>
+</kw>
+<kw name="Fetch Pwd" library="login">
+<arguments>
+<arg>${sheetname}</arg>
+</arguments>
+<assign>
+<var>${pwd}</var>
+</assign>
+<msg timestamp="20191124 21:02:32.096" level="INFO">${pwd} = Test@2019</msg>
+<status status="PASS" starttime="20191124 21:02:32.085" endtime="20191124 21:02:32.096"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_UN}</arg>
+<arg>${un}</arg>
+</arguments>
+<msg timestamp="20191124 21:02:32.097" level="INFO">Typing text 'testermail44@gmail.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20191124 21:02:32.096" endtime="20191124 21:02:32.948"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_Pwd}</arg>
+<arg>${pwd}</arg>
+</arguments>
+<msg timestamp="20191124 21:02:32.949" level="INFO">Typing text 'Test@2019' into text field 'id:passwd'.</msg>
+<status status="PASS" starttime="20191124 21:02:32.949" endtime="20191124 21:02:33.172"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:02:28.881" endtime="20191124 21:02:33.173"></status>
+</kw>
+<kw name="Click Login" library="Login_Keywords">
+<doc>Click on Login</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_Submit}</arg>
+</arguments>
+<msg timestamp="20191124 21:02:33.174" level="INFO">Clicking button 'name:SubmitLogin'.</msg>
+<status status="PASS" starttime="20191124 21:02:33.174" endtime="20191124 21:02:35.631"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:02:33.174" endtime="20191124 21:02:35.631"></status>
+</kw>
+<kw name="Validate Homepage" library="Login_Keywords">
+<doc>Vaalidate Homepage</doc>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20191124 21:02:35.642" level="INFO">${title} = My account - My Store</msg>
+<status status="PASS" starttime="20191124 21:02:35.632" endtime="20191124 21:02:35.642"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${title}</arg>
+</arguments>
+<msg timestamp="20191124 21:02:35.650" level="INFO">Page title is 'My account - My Store'.</msg>
+<status status="PASS" starttime="20191124 21:02:35.643" endtime="20191124 21:02:35.650"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:02:35.632" endtime="20191124 21:02:35.650"></status>
+</kw>
+<doc>Logging into Application</doc>
+<status status="PASS" starttime="20191124 21:02:28.880" endtime="20191124 21:02:35.651" critical="yes"></status>
+</test>
+<kw name="Close Browser Window" library="Login_Keywords" type="teardown">
+<doc>Keywords to close browser</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20191124 21:02:35.655" endtime="20191124 21:02:39.456"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:02:35.654" endtime="20191124 21:02:39.457"></status>
+</kw>
+<doc>This Test Suite is related to TC_01</doc>
+<status status="PASS" starttime="20191124 21:02:01.710" endtime="20191124 21:02:39.457"></status>
+</suite>
+<suite id="s1-s2" name="02-HomePage" source="C:\Users\anand\PycharmProjects\RPA-Project\TestCases\02-HomePage.robot">
+<test id="s1-s2-t1" name="TC002-FirstTC-Search Dresses For Women">
+<kw name="Launch Application" library="Login_Keywords" type="setup">
+<doc>Keywords for launching app</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20191124 21:02:39.540" level="INFO">Opening browser 'Chrome' to base url 'http://automationpractice.com/index.php'.</msg>
+<status status="PASS" starttime="20191124 21:02:39.539" endtime="20191124 21:02:58.623"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20191124 21:02:58.624" endtime="20191124 21:03:02.820"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:02:39.539" endtime="20191124 21:03:02.821"></status>
+</kw>
+<kw name="Login Screen,Enter UN and Pwd" library="Login_Keywords">
+<doc>Keywords to pick un and pwd</doc>
+<arguments>
+<arg>${sheetname}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_login}</arg>
+</arguments>
+<msg timestamp="20191124 21:03:02.822" level="INFO">Clicking link 'xpath://a[@class='login']'.</msg>
+<status status="PASS" starttime="20191124 21:03:02.822" endtime="20191124 21:03:05.951"></status>
+</kw>
+<kw name="Fetch Username" library="login">
+<arguments>
+<arg>${sheetname}</arg>
+</arguments>
+<assign>
+<var>${un}</var>
+</assign>
+<msg timestamp="20191124 21:03:07.922" level="INFO">${un} = testermail44@gmail.com</msg>
+<status status="PASS" starttime="20191124 21:03:05.951" endtime="20191124 21:03:07.922"></status>
+</kw>
+<kw name="Fetch Pwd" library="login">
+<arguments>
+<arg>${sheetname}</arg>
+</arguments>
+<assign>
+<var>${pwd}</var>
+</assign>
+<msg timestamp="20191124 21:03:07.932" level="INFO">${pwd} = Test@2019</msg>
+<status status="PASS" starttime="20191124 21:03:07.923" endtime="20191124 21:03:07.932"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_UN}</arg>
+<arg>${un}</arg>
+</arguments>
+<msg timestamp="20191124 21:03:07.933" level="INFO">Typing text 'testermail44@gmail.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20191124 21:03:07.933" endtime="20191124 21:03:08.370"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_Pwd}</arg>
+<arg>${pwd}</arg>
+</arguments>
+<msg timestamp="20191124 21:03:08.371" level="INFO">Typing text 'Test@2019' into text field 'id:passwd'.</msg>
+<status status="PASS" starttime="20191124 21:03:08.370" endtime="20191124 21:03:08.540"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:02.821" endtime="20191124 21:03:08.541"></status>
+</kw>
+<kw name="Click Login" library="Login_Keywords">
+<doc>Click on Login</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_Submit}</arg>
+</arguments>
+<msg timestamp="20191124 21:03:08.542" level="INFO">Clicking button 'name:SubmitLogin'.</msg>
+<status status="PASS" starttime="20191124 21:03:08.542" endtime="20191124 21:03:10.267"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:08.541" endtime="20191124 21:03:10.267"></status>
+</kw>
+<kw name="Search for your item" library="Home_Keywords">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${textbox_search}</arg>
+<arg>${itemName}</arg>
+</arguments>
+<msg timestamp="20191124 21:03:10.281" level="INFO">Sending key(s) ('Dresses',) to id:search_query_top element.</msg>
+<msg timestamp="20191124 21:03:10.328" level="INFO">Sending keys Dresses</msg>
+<status status="PASS" starttime="20191124 21:03:10.269" endtime="20191124 21:03:10.830"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_search}</arg>
+</arguments>
+<msg timestamp="20191124 21:03:10.831" level="INFO">Clicking button 'name:submit_search'.</msg>
+<status status="PASS" starttime="20191124 21:03:10.830" endtime="20191124 21:03:16.048"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:10.268" endtime="20191124 21:03:16.048"></status>
+</kw>
+<kw name="Display The Search Results" library="Home_Keywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2 seconds</arg>
+</arguments>
+<msg timestamp="20191124 21:03:18.049" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20191124 21:03:16.049" endtime="20191124 21:03:18.049"></status>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${listOfItems}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.069" level="INFO">${count} = 7</msg>
+<status status="PASS" starttime="20191124 21:03:18.050" endtime="20191124 21:03:18.069"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${count}</arg>
+</arguments>
+<msg timestamp="20191124 21:03:18.070" level="INFO">7</msg>
+<status status="PASS" starttime="20191124 21:03:18.069" endtime="20191124 21:03:18.070"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${count}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.070" endtime="20191124 21:03:18.071"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>//ul[@class='product_list grid row'] /li/div/div/h5/a</arg>
+</arguments>
+<assign>
+<var>${xpath}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.071" level="INFO">${xpath} = //ul[@class='product_list grid row'] /li/div/div/h5/a</msg>
+<status status="PASS" starttime="20191124 21:03:18.071" endtime="20191124 21:03:18.071"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${names}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.072" level="INFO">${names} = []</msg>
+<status status="PASS" starttime="20191124 21:03:18.072" endtime="20191124 21:03:18.072"></status>
+</kw>
+<kw name="${i} IN RANGE [ 1 | ${count} + 1 ]" type="for">
+<kw name="${i} = 1" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=(${xpath})[${i}]</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.150" level="INFO">${name} = Printed Summer Dress</msg>
+<status status="PASS" starttime="20191124 21:03:18.072" endtime="20191124 21:03:18.150"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.150" endtime="20191124 21:03:18.151"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.072" endtime="20191124 21:03:18.151"></status>
+</kw>
+<kw name="${i} = 2" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=(${xpath})[${i}]</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.187" level="INFO">${name} = Printed Dress</msg>
+<status status="PASS" starttime="20191124 21:03:18.151" endtime="20191124 21:03:18.187"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.188" endtime="20191124 21:03:18.188"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.151" endtime="20191124 21:03:18.188"></status>
+</kw>
+<kw name="${i} = 3" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=(${xpath})[${i}]</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.227" level="INFO">${name} = Printed Summer Dress</msg>
+<status status="PASS" starttime="20191124 21:03:18.189" endtime="20191124 21:03:18.227"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.227" endtime="20191124 21:03:18.228"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.189" endtime="20191124 21:03:18.228"></status>
+</kw>
+<kw name="${i} = 4" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=(${xpath})[${i}]</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.266" level="INFO">${name} = Printed Chiffon Dress</msg>
+<status status="PASS" starttime="20191124 21:03:18.228" endtime="20191124 21:03:18.266"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.266" endtime="20191124 21:03:18.267"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.228" endtime="20191124 21:03:18.267"></status>
+</kw>
+<kw name="${i} = 5" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=(${xpath})[${i}]</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.304" level="INFO">${name} = Printed Dress</msg>
+<status status="PASS" starttime="20191124 21:03:18.267" endtime="20191124 21:03:18.304"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.304" endtime="20191124 21:03:18.305"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.267" endtime="20191124 21:03:18.305"></status>
+</kw>
+<kw name="${i} = 6" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=(${xpath})[${i}]</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.345" level="INFO">${name} = Faded Short Sleeve T-shirts</msg>
+<status status="PASS" starttime="20191124 21:03:18.305" endtime="20191124 21:03:18.345"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.345" endtime="20191124 21:03:18.346"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.305" endtime="20191124 21:03:18.346"></status>
+</kw>
+<kw name="${i} = 7" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=(${xpath})[${i}]</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20191124 21:03:18.383" level="INFO">${name} = Blouse</msg>
+<status status="PASS" starttime="20191124 21:03:18.346" endtime="20191124 21:03:18.383"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20191124 21:03:18.383" endtime="20191124 21:03:18.384"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.346" endtime="20191124 21:03:18.384"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:18.072" endtime="20191124 21:03:18.384"></status>
+</kw>
+<status status="PASS" starttime="20191124 21:03:16.049" endtime="20191124 21:03:18.384"></status>
 </kw>
 <kw name="Close Browser Window" library="Login_Keywords" type="teardown">
 <doc>Keywords to close browser</doc>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20191121 00:35:31.153" endtime="20191121 00:35:33.445"></status>
+<status status="PASS" starttime="20191124 21:03:18.386" endtime="20191124 21:03:20.667"></status>
 </kw>
-<status status="PASS" starttime="20191121 00:35:31.153" endtime="20191121 00:35:33.445"></status>
+<status status="PASS" starttime="20191124 21:03:18.385" endtime="20191124 21:03:20.667"></status>
 </kw>
 <tags>
 <tag>Sanity</tag>
 </tags>
-<status status="FAIL" starttime="20191121 00:30:12.956" endtime="20191121 00:35:33.445" critical="yes">Setup failed:
-TimeoutException: Message: timeout
-  (Session info: chrome=78.0.3904.97)
-Stacktrace:
-Backtrace:
-	Ordinal0 [0x002DEBD3+1502163]
-	Ordinal0 [0x0025F781+980865]
-	Ordinal0 [0x001E74E8+488680]
-	Ordinal0 [0x001E6175+483701]
-	Ordinal0 [0x001E5E14+482836]
-	Ordinal0 [0x001EAE8D+503437]
-	Ordinal0 [0x001EC7BB+509883]
-	Ordinal0 [0x001DF5C8+456136]
-	Ordinal0 [0x001EAD8C+503180]
-	Ordinal0 [0x0019FA5C+195164]
-	Ordinal0 [0x001978EB+162027]
-	Ordinal0 [0x00180AC7+68295]
-	Ordinal0 [0x00181B40+72512]
-	Ordinal0 [0x00181AD9+72409]
-	Ordinal0 [0x00278FE7+1085415]
-	GetHandleVerifier [0x0037D8AD+503293]
-	GetHandleVerifier [0x0037D640+502672]
-	GetHandleVerifier [0x0038471C+531564]
-	GetHandleVerifier [0x0037E0BA+505354]
-	Ordinal0 [0x002706B6+1050294]
-	Ordinal0 [0x0027052F+1049903]
-	Ordinal0 [0x0027B04B+1093707]
-	Ordinal0 [0x0027B1B3+1094067]
-	Ordinal0 [0x0027A145+1089861]
-	BaseThreadInitThunk [0x776B6359+25]
-	RtlGetAppContainerNamedObjectPath [0x77BF7B74+228]
-	RtlGetAppContainerNamedObjectPath [0x77BF7B44+180]
-</status>
+<status status="PASS" starttime="20191124 21:02:39.538" endtime="20191124 21:03:20.667" critical="yes"></status>
 </test>
-<status status="FAIL" starttime="20191121 00:30:12.240" endtime="20191121 00:35:33.577"></status>
+<status status="PASS" starttime="20191124 21:02:39.460" endtime="20191124 21:03:20.670"></status>
 </suite>
-<status status="FAIL" starttime="20191121 00:30:12.193" endtime="20191121 00:35:33.597"></status>
+<status status="PASS" starttime="20191124 21:02:01.596" endtime="20191124 21:03:20.675"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1">Critical Tests</stat>
-<stat pass="0" fail="1">All Tests</stat>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1">Sanity</stat>
+<stat pass="1" fail="0">Sanity</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" id="s1" name="TestCases">TestCases</stat>
-<stat pass="0" fail="1" id="s1-s1" name="02-HomePage">TestCases.02-HomePage</stat>
+<stat pass="2" fail="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="1" fail="0" id="s1-s1" name="01-LoginPage">TestCases.01-LoginPage</stat>
+<stat pass="1" fail="0" id="s1-s2" name="02-HomePage">TestCases.02-HomePage</stat>
 </suite>
 </statistics>
 <errors>

@@ -1,9 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Variables  ../../RPA-Project/Locators/HomePage_locators.py
-Library  SeleniumLibrary
 Library  Collections
-Variables  ../../RPA-Project/Locators/HomePage_locators.py
 *** Variables ***
 ${itemName}=  Dresses
 
