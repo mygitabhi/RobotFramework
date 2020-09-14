@@ -1,7 +1,7 @@
 # RobotFramework
 
 ## Introduction
-***Hey All ! How is it going ? This is Abhishek and I cam up with an exciting and most trending automation practice widely used these days***
+***Hey All ! How is it going ? This is Abhishek and I came up with an exciting and most trending automation practice widely used these days***
 #### Let's get started 
 **Robot Framework** is a generic test automation framework for acceptance testing and acceptance test-driven development (ATDD). It has easy-to-use tabular test data syntax and it utilizes the keyword-driven testing approach.
 
